@@ -5,13 +5,11 @@ import lombok.RequiredArgsConstructor;
 import mate.academy.rickandmorty.model.RnMCharacter;
 import mate.academy.rickandmorty.repository.SpecProvManager;
 import mate.academy.rickandmorty.repository.SpecProvider;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
 public class CharacterSpecProvManager implements SpecProvManager<RnMCharacter> {
-    @Autowired
     private final List<SpecProvider<RnMCharacter>> specificationProviders;
 
     @Override

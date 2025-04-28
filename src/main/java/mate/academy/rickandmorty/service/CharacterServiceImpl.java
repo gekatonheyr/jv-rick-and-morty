@@ -16,7 +16,6 @@ import mate.academy.rickandmorty.mapper.CharacterMapper;
 import mate.academy.rickandmorty.model.RnMCharacter;
 import mate.academy.rickandmorty.repository.CharacterRepository;
 import mate.academy.rickandmorty.repository.spec.RnMSpecBuilder;
-import org.apache.commons.lang3.RandomUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -31,10 +30,7 @@ public class CharacterServiceImpl implements CharacterService {
 
     @Override
     public RnMCharacterDto getRandomCharacter() {
-        Integer randomId = RandomUtils.nextInt(1, (int) repository.count());
-        RnMCharacter rnMCharacter = repository.findById(randomId.longValue()).orElseThrow(() ->
-                new RuntimeException("Random character not found"));
-        return mapper.toDto(rnMCharacter);
+        return mapper.toDto(repository.findFirst());
     }
 
     @Override

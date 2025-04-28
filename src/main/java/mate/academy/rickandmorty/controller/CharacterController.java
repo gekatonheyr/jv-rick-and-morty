@@ -32,7 +32,7 @@ public class CharacterController {
             + "part of characters name but sure you will recognize it from some set of results -"
             + "this controller is for you. Give the part of characters name and you will get "
             + "paginated result with ability of sorting records")
-    @GetMapping("/search/{name}")
+    @GetMapping("/search")
     public Page<RnMCharacterDto> search(CharacterSearchParameters requestParams,
                                         Pageable pageable) {
         return characterService.search(requestParams, pageable);
